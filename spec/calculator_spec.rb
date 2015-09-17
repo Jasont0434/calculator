@@ -72,5 +72,36 @@ describe Calculator do
       expect(calc.multiply 2, 4, 3).to eq 24
     end
   end
+  
+  describe "#division" do
+    it "returns an integer" do
+      expect(calc.division 2, 1).to be_an Integer
+    end
     
+	it "is dependent on the operation order" do
+      expect(calc.division 2, 3).not_to eq calc.division(3, 2)
+    end
+	
+	context "when dividing by one" do
+	  it "returns the same integer" do
+	    expect(calc.division 4,1).to eq 4
+	  end
+	end
+	
+	context "when dividing zero by an integer" do
+      it "returns a zero" do
+        expect(calc.division 0, 4).to eq 0
+      end
+    end
+	
+	context "when dividing by zero" do
+      it "going to cause an error" do
+        expect {calc.division 3,0}.to raise_exception      
+	  end
+    end
+	
+	it "accepts more than 2 arguments" do
+      expect(calc.division 16, 2, 2).to eq 4
+    end
+  end
 end

@@ -11,4 +11,9 @@ class Calculator
   def multiply *numbers
     numbers.inject(:*)
   end
+  
+  def division *numbers
+    numbers.inject(:/)
+  end
+  
 end
