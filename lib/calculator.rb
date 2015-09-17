@@ -4,4 +4,8 @@ class Calculator
     numbers.inject(:+)
   end
   
+  def sub *numbers
+    numbers.inject(:-)
+  end
+  
 end
