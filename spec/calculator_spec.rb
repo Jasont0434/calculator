@@ -46,5 +46,31 @@ describe Calculator do
         expect(calc.sub 2, 1, 4).to eq -3
       end
   end
+  describe "#multiply" do
+    it "returns an integer" do
+      expect(calc.multiply 1, 2).to be_an Integer
+    end
+    
+	it "is not dependent on the operation order" do
+      expect(calc.multiply 1, 2).to eq calc.multiply(2, 1)
+    end
+	
+	context "when multiplying by one" do
+	  it "returns the same integer" do
+	    expect(calc.multiply 4,1).to eq 4
+	  end
+	end
+	
+    context "when multiplying zero to an integer" do
+      it "returns a zero" do
+        expect(calc.multiply 4, 0).to eq 0
+      end
+    end
+
+
+    it "accepts more than 2 arguments" do
+      expect(calc.multiply 2, 4, 3).to eq 24
+    end
+  end
     
 end
